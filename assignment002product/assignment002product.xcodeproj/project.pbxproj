@@ -455,6 +455,7 @@
 				1ED23CAE19ED9CD10083C830 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1ED23CAF19ED9CD10083C830 /* Build configuration list for PBXNativeTarget "assignment002productTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +464,7 @@
 				1ED23CB119ED9CD10083C830 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

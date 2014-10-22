@@ -10,4 +10,11 @@
 
 @interface RootContainer : UIViewController
 
+@property (weak, nonatomic) UIViewController *MenuVC;
+@property (weak, nonatomic) UIViewController *GameVC;
+@property (nonatomic) UIStoryboard *menuStoryboard;
+
+-(void)menuTransition:(UIViewController *)nextVC;
+-(void)createGameVC:(UIViewController *)GameVC;
+
 @end

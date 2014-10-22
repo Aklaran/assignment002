@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+//Declaring the existence of a RootContainer class w/o referencing it (avoiding recursive error)
+@class RootContainer;
 
 @interface MenuViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *playButton;
+@property (weak, nonatomic) RootContainer *rootContainer;
+
+-(void)playButtonPress:(UITapGestureRecognizer *)sender;
 
 @end
 

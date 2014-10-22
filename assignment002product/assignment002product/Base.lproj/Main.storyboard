@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Root Container-->
@@ -29,7 +29,7 @@
                         <viewControllerLayoutGuide type="top" id="Zql-XZ-wIW"/>
                         <viewControllerLayoutGuide type="bottom" id="ePW-Em-U8F"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2a0-aq-jfB" customClass="Menu">
+                    <view key="view" contentMode="scaleToFill" id="2a0-aq-jfB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -39,17 +39,20 @@
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="216" id="2Mn-wk-NiW"/>
+                                    <constraint firstAttribute="width" constant="216" id="jZR-ef-k4K"/>
+                                    <constraint firstAttribute="height" constant="214" id="lTa-fa-0aR"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rrz-AP-NDj" firstAttribute="centerY" secondItem="2a0-aq-jfB" secondAttribute="centerY" id="jdn-cy-MlB"/>
-                            <constraint firstItem="Rrz-AP-NDj" firstAttribute="top" secondItem="Zql-XZ-wIW" secondAttribute="bottom" constant="173" id="lV8-Mg-6ao"/>
-                            <constraint firstItem="Rrz-AP-NDj" firstAttribute="centerX" secondItem="2a0-aq-jfB" secondAttribute="centerX" id="upU-oS-hNE"/>
+                            <constraint firstItem="Rrz-AP-NDj" firstAttribute="centerY" secondItem="2a0-aq-jfB" secondAttribute="centerY" id="IaO-uc-lNx"/>
+                            <constraint firstItem="Rrz-AP-NDj" firstAttribute="centerX" secondItem="2a0-aq-jfB" secondAttribute="centerX" id="b0x-c2-e8R"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playButton" destination="Rrz-AP-NDj" id="wX5-7A-lgS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuC-El-y8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
