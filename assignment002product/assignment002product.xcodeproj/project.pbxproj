@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E97E18A19FEC20600352631 /* paddle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E97E18919FEC20600352631 /* paddle1.png */; };
+		1E97E18C19FEC27400352631 /* ball1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E97E18B19FEC27400352631 /* ball1.png */; };
+		1E97E18F19FECD3400352631 /* FannyMcFattersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E97E18E19FECD3400352631 /* FannyMcFattersonViewController.m */; };
 		1ED23C8F19ED9CD00083C830 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED23C8E19ED9CD00083C830 /* main.m */; };
 		1ED23C9219ED9CD00083C830 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED23C9119ED9CD00083C830 /* AppDelegate.m */; };
 		1ED23C9819ED9CD00083C830 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ED23C9619ED9CD00083C830 /* Main.storyboard */; };
@@ -30,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E97E18919FEC20600352631 /* paddle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle1.png; sourceTree = "<group>"; };
+		1E97E18B19FEC27400352631 /* ball1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball1.png; sourceTree = "<group>"; };
+		1E97E18D19FECD3400352631 /* FannyMcFattersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FannyMcFattersonViewController.h; path = ../Controllers/FannyMcFattersonViewController.h; sourceTree = "<group>"; };
+		1E97E18E19FECD3400352631 /* FannyMcFattersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FannyMcFattersonViewController.m; path = ../Controllers/FannyMcFattersonViewController.m; sourceTree = "<group>"; };
 		1ED23C8919ED9CD00083C830 /* assignment002product.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment002product.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ED23C8D19ED9CD00083C830 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ED23C8E19ED9CD00083C830 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,6 +151,8 @@
 				1ED23CC119EDA1990083C830 /* MenuViewController.m */,
 				1ED23CBD19EDA1510083C830 /* GameViewController.h */,
 				1ED23CBE19EDA1510083C830 /* GameViewController.m */,
+				1E97E18D19FECD3400352631 /* FannyMcFattersonViewController.h */,
+				1E97E18E19FECD3400352631 /* FannyMcFattersonViewController.m */,
 			);
 			name = Controllers;
 			path = Containers;
@@ -152,6 +161,8 @@
 		1ED23CC319EDA2A20083C830 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				1E97E18B19FEC27400352631 /* ball1.png */,
+				1E97E18919FEC20600352631 /* paddle1.png */,
 				1ED23CC419EDA2A20083C830 /* PlayButton.png */,
 			);
 			path = Assets;
@@ -237,7 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E97E18C19FEC27400352631 /* ball1.png in Resources */,
 				1ED23C9819ED9CD00083C830 /* Main.storyboard in Resources */,
+				1E97E18A19FEC20600352631 /* paddle1.png in Resources */,
 				1ED23C9D19ED9CD00083C830 /* LaunchScreen.xib in Resources */,
 				1ED23C9A19ED9CD00083C830 /* Images.xcassets in Resources */,
 				1ED23CC519EDA2A20083C830 /* PlayButton.png in Resources */,
@@ -262,6 +275,7 @@
 				1ED23C9219ED9CD00083C830 /* AppDelegate.m in Sources */,
 				1ED23CBB19EDA0960083C830 /* RootContainer.m in Sources */,
 				1ED23C8F19ED9CD00083C830 /* main.m in Sources */,
+				1E97E18F19FECD3400352631 /* FannyMcFattersonViewController.m in Sources */,
 				1ED23CC219EDA1990083C830 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

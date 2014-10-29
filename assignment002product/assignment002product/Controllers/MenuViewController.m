@@ -23,6 +23,8 @@
     _playButton.userInteractionEnabled = YES;
     UITapGestureRecognizer *playButtonTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(playButtonPress:)];
     [_playButton addGestureRecognizer:playButtonTap];
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -8,15 +8,13 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="RootContainer" id="BYZ-38-t0r" customClass="RootContainer" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <containerView key="view" opaque="NO" contentMode="scaleToFill" id="Jwe-fs-KUn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <segue destination="0Sr-Ht-sDb" kind="embed" id="frd-OS-wWC"/>
+                        </connections>
+                    </containerView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,7 +42,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Rrz-AP-NDj" firstAttribute="centerY" secondItem="2a0-aq-jfB" secondAttribute="centerY" id="IaO-uc-lNx"/>
                             <constraint firstItem="Rrz-AP-NDj" firstAttribute="centerX" secondItem="2a0-aq-jfB" secondAttribute="centerX" id="b0x-c2-e8R"/>
@@ -56,25 +54,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kuC-El-y8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815" y="-222"/>
+            <point key="canvasLocation" x="972" y="-275"/>
         </scene>
         <!--Game View Controller-->
-        <scene sceneID="eV9-ci-6cw">
+        <scene sceneID="V7H-aq-6Qe">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" id="N6A-fS-0WA" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" automaticallyAdjustsScrollViewInsets="NO" id="0Sr-Ht-sDb" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WW8-pI-1aN"/>
-                        <viewControllerLayoutGuide type="bottom" id="ChD-fF-puI"/>
+                        <viewControllerLayoutGuide type="top" id="Cqq-AI-yQy"/>
+                        <viewControllerLayoutGuide type="bottom" id="com-hy-eGU"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pmn-oc-ada">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hp4-H7-csh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.122896106" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <toolbarItems/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6NA-3e-R44" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O7s-0b-yN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="548"/>
         </scene>
     </scenes>
     <resources>

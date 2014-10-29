@@ -39,8 +39,8 @@
 }
 
 -(void)menuTransition:(UIViewController *)nextVC {
-    // Calling the below method to add GameViewController as a child of the RootContainer, correctly set its frame etc.
-    [self createGameVC:_GameVC];
+//    // Calling the below method to add GameViewController as a child of the RootContainer, correctly set its frame etc.
+//    [self createGameVC:_GameVC];
 
     // Animation block for the transition from MenuVC to GameVC
     [UIView animateWithDuration:1
@@ -56,23 +56,23 @@
                      }];
 }
 
--(void)createGameVC:(UIViewController *)GameVC; {
-    //Creating "nextVC" of GameViewController's spot in the main storyboard
-    UIViewController *nextVC = [_menuStoryboard instantiateViewControllerWithIdentifier:@"GameViewController"];
-
-    // Setting GameVC's frame off to the right of the screen.
-    CGRect gameFrame = self.view.bounds;
-    gameFrame.origin.x = self.view.bounds.size.width;
-    _GameVC.view.frame = gameFrame;
-    
-    // Adding nextVC to the RootContainer
-    [self addChildViewController:nextVC];
-    [nextVC didMoveToParentViewController:self];
-    [self.view addSubview:nextVC.view];
-    
-    // Setting the class (weak) variable equal to its local variable.
-    self.GameVC = nextVC;
-    }
+//-(void)createGameVC:(UIViewController *)GameVC; {
+//    //Creating "nextVC" of GameViewController's spot in the main storyboard
+//    UIViewController *nextVC = [_menuStoryboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+//
+//    // Setting GameVC's frame off to the right of the screen.
+//    CGRect gameFrame = self.view.bounds;
+//    gameFrame.origin.x = self.view.bounds.size.width;
+//    _GameVC.view.frame = gameFrame;
+//    
+//    // Adding nextVC to the RootContainer
+//    [self addChildViewController:nextVC];
+//    [nextVC didMoveToParentViewController:self];
+//    [self.view addSubview:nextVC.view];
+//    
+//    // Setting the class (weak) variable equal to its local variable.
+//    self.GameVC = nextVC;
+//    }
 
 /*
 #pragma mark - Navigation

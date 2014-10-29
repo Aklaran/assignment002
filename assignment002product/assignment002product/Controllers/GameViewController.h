@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface GameViewController : UIViewController
+{
+    CGPoint _initialPoint;
+}
+@property (weak, nonatomic) IBOutlet UILabel *player1Score;
+@property (weak, nonatomic) IBOutlet UILabel *player2Score;
+@property (assign, nonatomic) CGFloat firstY;
 
+//-(void)dragPaddle:(UIPanGestureRecognizer *)sender;
 @end
