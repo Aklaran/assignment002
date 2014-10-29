@@ -56,7 +56,7 @@
                      }];
 }
 
-//-(void)createGameVC:(UIViewController *)GameVC; {
+// -(void)createGameVC:(UIViewController *)GameVC; {
 //    //Creating "nextVC" of GameViewController's spot in the main storyboard
 //    UIViewController *nextVC = [_menuStoryboard instantiateViewControllerWithIdentifier:@"GameViewController"];
 //

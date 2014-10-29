@@ -100,13 +100,21 @@
 
 // What happens when you drag an amount.  Goal is: Paddle moves with your finger.
 -(void)didChangePan:( UIPanGestureRecognizer* )panGesture {
+    // http://blog.shoguniphicus.com/2011/06/uigesturerecognizers.html
+    CGPoint translation = [panGesture translationInView:self.view];
+    [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, panGesture.view.center.y + translation.y)];
+    [panGesture setTranslation:CGPointZero inView:self.view];
     // Changed from self.view to panGesture.view, moves correctly. Go Figure!
-    CGPoint currentPoint = [panGesture locationInView:panGesture.view];
-    CGPoint deltaPoint = CGPointMake(currentPoint.x - _initialPoint.x, currentPoint.y - _initialPoint.y);
-    UIImageView *paddle = (UIImageView *)panGesture.view;
-    CGRect paddleFrame = paddle.frame;
-    paddleFrame = CGRectMake(paddleFrame.origin.x, paddleFrame.origin.y + deltaPoint.y, paddleFrame.size.width, paddleFrame.size.height);
-    paddle.Frame = paddleFrame;
+//    CGPoint currentPoint = [panGesture locationInView:panGesture.view];
+//    CGPoint deltaPoint = CGPointMake(currentPoint.x - _initialPoint.x, currentPoint.y - _initialPoint.y);
+//    UIImageView *paddle = (UIImageView *)panGesture.view;
+//    CGRect paddleFrame = paddle.frame;
+//    NSLog (@"paddleFrame.origin.y == %f" , paddleFrame.origin.y);
+//    NSLog(@"current point == %@" , NSStringFromCGPoint(currentPoint));
+//    NSLog(@"delta point == %@" , NSStringFromCGPoint(deltaPoint));
+//    paddleFrame = CGRectMake(paddleFrame.origin.x, paddleFrame.origin.y + deltaPoint.y, paddleFrame.size.width, paddleFrame.size.height);
+//    paddle.Frame = paddleFrame;
+
 }
 
 // What happens when you pick your finger up
