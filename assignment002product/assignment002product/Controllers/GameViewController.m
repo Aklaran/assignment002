@@ -22,6 +22,7 @@
 
 @implementation GameViewController
 
+#pragma mark - Initialization
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -41,6 +42,12 @@
     UIImageView *paddle2View = [[UIImageView alloc] initWithFrame:paddle2Frame];
     paddle2View.image = paddle2;
     [self.view addSubview:paddle2View];
+    
+    UIImage *ball = [UIImage imageNamed:@"ball1.png"];
+    CGRect ballFrame = CGRectMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2, 44, 44);
+    UIImageView *ballView = [[UIImageView alloc] initWithFrame:ballFrame];
+    ballView.image = ball;
+    [self.view addSubview:ballView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +55,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark  - UIPanGestureRecognizer Methods
 // This method encompasses all the didPan possible actions. When one of them happens, it will jump to the correct method.
 - ( void )didPan:( UIPanGestureRecognizer* )panGesture
 {
@@ -74,18 +83,18 @@
     }
 }
 
-//-(void)dragPaddle:(UIPanGestureRecognizer *)sender {
-//    if (sender.state == UIGestureRecognizerStateBegan) {
-//        self.firstY = sender.view.center.y;
-//        NSLog(@"%f",self.firstY);
-//    }
-//    [sender setMinimumNumberOfTouches:1];
-//    [self.view bringSubviewToFront:sender.view];
-//    CGPoint translation = [sender translationInView:self.view];
-//    [sender setTranslation:CGPointMake(0, self.firstY + [sender translationInView:self.view].y) inView:self.view];
-//    NSLog(@"%@", NSStringFromCGPoint(translation));
-//    
-//}
+/*-(void)dragPaddle:(UIPanGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        self.firstY = sender.view.center.y;
+        NSLog(@"%f",self.firstY);
+    }
+    [sender setMinimumNumberOfTouches:1];
+    [self.view bringSubviewToFront:sender.view];
+    CGPoint translation = [sender translationInView:self.view];
+    [sender setTranslation:CGPointMake(0, self.firstY + [sender translationInView:self.view].y) inView:self.view];
+    NSLog(@"%@", NSStringFromCGPoint(translation));
+}
+ */
 
 
 -(void)didPossiblePan:( UIPanGestureRecognizer* )panGesture {
@@ -102,18 +111,36 @@
 -(void)didChangePan:( UIPanGestureRecognizer* )panGesture {
     // http://blog.shoguniphicus.com/2011/06/uigesturerecognizers.html
     CGPoint translation = [panGesture translationInView:self.view];
-    [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, panGesture.view.center.y + translation.y)];
-    [panGesture setTranslation:CGPointZero inView:self.view];
-    // Changed from self.view to panGesture.view, moves correctly. Go Figure!
-//    CGPoint currentPoint = [panGesture locationInView:panGesture.view];
-//    CGPoint deltaPoint = CGPointMake(currentPoint.x - _initialPoint.x, currentPoint.y - _initialPoint.y);
-//    UIImageView *paddle = (UIImageView *)panGesture.view;
-//    CGRect paddleFrame = paddle.frame;
-//    NSLog (@"paddleFrame.origin.y == %f" , paddleFrame.origin.y);
-//    NSLog(@"current point == %@" , NSStringFromCGPoint(currentPoint));
-//    NSLog(@"delta point == %@" , NSStringFromCGPoint(deltaPoint));
-//    paddleFrame = CGRectMake(paddleFrame.origin.x, paddleFrame.origin.y + deltaPoint.y, paddleFrame.size.width, paddleFrame.size.height);
-//    paddle.Frame = paddleFrame;
+    [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, panGesture.view.center.y + translation.y)]; // this line actually moves the paddle
+    [panGesture setTranslation:CGPointZero
+                        inView:self.view];
+    CGFloat currentY = panGesture.view.center.y;
+    
+    // These "if" statements stop the paddle from moving when it hits the top or bottom of the frame.
+    if (currentY < 50) {
+        NSLog(@"paddle hit the top");
+        [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, 50)];
+        [panGesture setTranslation:CGPointZero
+                            inView:self.view];// this line resets the velocity back to (0,0) so the paddle doesn't fly off the screen
+    }
+    if (currentY > (self.view.bounds.size.height - 50)) {
+        NSLog(@"paddle hit the bottom");
+        [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, (self.view.bounds.size.height - 50))];
+        [panGesture setTranslation:CGPointZero
+                            inView:self.view];
+    }
+  /*
+    Changed from self.view to panGesture.view, moves correctly. Go Figure!
+    CGPoint currentPoint = [panGesture locationInView:panGesture.view];
+    CGPoint deltaPoint = CGPointMake(currentPoint.x - _initialPoint.x, currentPoint.y - _initialPoint.y);
+    UIImageView *paddle = (UIImageView *)panGesture.view;
+    CGRect paddleFrame = paddle.frame;
+    NSLog (@"paddleFrame.origin.y == %f" , paddleFrame.origin.y);
+    NSLog(@"current point == %@" , NSStringFromCGPoint(currentPoint));
+    NSLog(@"delta point == %@" , NSStringFromCGPoint(deltaPoint));
+    paddleFrame = CGRectMake(paddleFrame.origin.x, paddleFrame.origin.y + deltaPoint.y, paddleFrame.size.width, paddleFrame.size.height);
+    paddle.Frame = paddleFrame;
+   */
 
 }
 
