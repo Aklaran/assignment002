@@ -11,10 +11,15 @@
 @interface GameViewController : UIViewController
 {
     CGPoint _initialPoint;
+    CGPoint ballPosition;
+    IBOutlet UIImageView *ball;
+    CADisplayLink _ballDisplayLink;
 }
 @property (weak, nonatomic) IBOutlet UILabel *player1Score;
 @property (weak, nonatomic) IBOutlet UILabel *player2Score;
-@property (assign, nonatomic) CGFloat firstY;
+
+@property (retain, nonatomic) UIImageView *ball;
+
 
 //-(void)dragPaddle:(UIPanGestureRecognizer *)sender;
 @end

@@ -18,9 +18,12 @@
 -(void)didCancelPan:( UIPanGestureRecognizer* )panGesture;
 -(void)didFailPan:( UIPanGestureRecognizer* )panGesture;
 
+-(void)bounce;
+
 @end
 
 @implementation GameViewController
+@synthesize ball;
 
 #pragma mark - Initialization
 - (void)viewDidLoad {
@@ -43,11 +46,13 @@
     paddle2View.image = paddle2;
     [self.view addSubview:paddle2View];
     
-    UIImage *ball = [UIImage imageNamed:@"ball1.png"];
+    UIImage *ball1 = [UIImage imageNamed:@"ball1.png"];
     CGRect ballFrame = CGRectMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2, 44, 44);
     UIImageView *ballView = [[UIImageView alloc] initWithFrame:ballFrame];
-    ballView.image = ball;
+    ballView.image = ball1;
     [self.view addSubview:ballView];
+    ballPosition = CGPointMake(ballFrame.origin.x, ballFrame.origin.y);
+    [CADisplayLink displayLinkWithTarget:self selector:(bounce)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +62,7 @@
 
 
 #pragma mark  - UIPanGestureRecognizer Methods
-// This method encompasses all the didPan possible actions. When one of them happens, it will jump to the correct method.
+// This method encompasses all the didPan possible actions. When one of them happens, it will "switch" to the correct method.
 - ( void )didPan:( UIPanGestureRecognizer* )panGesture
 {
     switch ( panGesture.state )
@@ -83,7 +88,8 @@
     }
 }
 
-/*-(void)dragPaddle:(UIPanGestureRecognizer *)sender {
+/* First try at UIPanGestureRecognizer code
+ -(void)dragPaddle:(UIPanGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         self.firstY = sender.view.center.y;
         NSLog(@"%f",self.firstY);
@@ -113,7 +119,9 @@
     CGPoint translation = [panGesture translationInView:self.view];
     [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, panGesture.view.center.y + translation.y)]; // this line actually moves the paddle
     [panGesture setTranslation:CGPointZero
-                        inView:self.view];
+                        inView:self.view];// this line resets the velocity back to (0,0) so the paddle doesn't fly off the screen
+    
+    // This variable is created for use in the below "if" statements
     CGFloat currentY = panGesture.view.center.y;
     
     // These "if" statements stop the paddle from moving when it hits the top or bottom of the frame.
@@ -121,7 +129,7 @@
         NSLog(@"paddle hit the top");
         [panGesture.view setCenter:CGPointMake(panGesture.view.center.x, 50)];
         [panGesture setTranslation:CGPointZero
-                            inView:self.view];// this line resets the velocity back to (0,0) so the paddle doesn't fly off the screen
+                            inView:self.view];
     }
     if (currentY > (self.view.bounds.size.height - 50)) {
         NSLog(@"paddle hit the bottom");
@@ -129,7 +137,9 @@
         [panGesture setTranslation:CGPointZero
                             inView:self.view];
     }
-  /*
+  
+  /* Second try at UIPanGestureRecognizer code
+   
     Changed from self.view to panGesture.view, moves correctly. Go Figure!
     CGPoint currentPoint = [panGesture locationInView:panGesture.view];
     CGPoint deltaPoint = CGPointMake(currentPoint.x - _initialPoint.x, currentPoint.y - _initialPoint.y);
@@ -156,6 +166,21 @@
 -(void)didFailPan:( UIPanGestureRecognizer* )panGesture {
     NSLog(@"UIGestureRecognizerStateFailed");
 }
+
+#pragma mark - Ball!
+
+-(void)bounce {
+    ball.center = CGPointMake(ball.center.x + ballPosition.x, ball.center.y +ballPosition.y);
+    if (ball.center.x > self.view.bounds.size.width || ball.center.x < 0) {
+        ballPosition.x = -ballPosition.x;
+    }
+    if (ball.center.y > self.view.bounds.size.height || ball.center.y < 0) {
+        ballPosition.y = -ballPosition.y;
+    }
+}
+
+
+
 
 
 /*
