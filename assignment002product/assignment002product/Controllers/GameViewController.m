@@ -140,6 +140,7 @@
         [panGesture setTranslation:CGPointZero
                             inView:self.view];
     }
+    _player1 = panGesture.view.frame;
   
   /* Second try at UIPanGestureRecognizer code
    
@@ -178,12 +179,15 @@
     
     // bouncy code
     if (ball.origin.x + ball.size.width > self.view.bounds.size.width) {
-        ballDirection.x = -ballDirection.x;
+        ballDirection.x = -ballDirection.x-1;
         NSLog(@"Player 1 Scores");
     }
     if (ball.origin.x < 0) {
-        ballDirection.x = -ballDirection.x;
+        ballDirection.x = -ballDirection.x+1;
         NSLog(@"Player 2 Scores");
+    }
+    if(CGRectIntersectsRect(ball, _player1)) {
+        ballDirection.x = -ballDirection.x+1;
     }
     if (ball.origin.y + ball.size.height > self.view.bounds.size.height) {
         ballDirection.y = -ballDirection.y-.5;
@@ -191,23 +195,7 @@
     if (ball.origin.y < 0) {
         ballDirection.y = -ballDirection.y+.5;
     }
-
-    NSLog(@"BOuncey Time");
     _ballView.frame = ball;
 }
- 
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

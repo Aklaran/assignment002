@@ -14,6 +14,7 @@
     CGPoint ballDirection;
     UIImageView *_ballView;
     CADisplayLink* _ballDisplayLink;
+    CGRect _player1;
 }
 
 
