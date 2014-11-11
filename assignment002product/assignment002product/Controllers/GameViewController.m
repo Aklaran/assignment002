@@ -19,6 +19,7 @@
 -(void)didFailPan:( UIPanGestureRecognizer* )panGesture;
 
 -(void)bounce;
+-(void)player2Move;
 
 @end
 
@@ -41,9 +42,11 @@
     
     UIImage *paddle2 = [UIImage imageNamed:@"paddle1.png"];
     CGRect paddle2Frame = CGRectMake(self.view.bounds.size.width -44, self.view.bounds.size.height /2 -44, 44, 100);
-    UIImageView *paddle2View = [[UIImageView alloc] initWithFrame:paddle2Frame];
-    paddle2View.image = paddle2;
-    [self.view addSubview:paddle2View];
+    _player2View = [[UIImageView alloc] initWithFrame:paddle2Frame];
+    _player2View.image = paddle2;
+    [self.view addSubview:_player2View];
+    _player2DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(player2Move)];
+    [_player2DisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     UIImage *ball1 = [UIImage imageNamed:@"ball1.png"];
     CGRect ballFrame = CGRectMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2, 44, 44);
@@ -173,7 +176,7 @@
 
 #pragma mark - Ball!
 
--(void)bounce{ // method that will be called constantly, checking for the ball needing to bounce.
+-(void)bounce { // method that will be called constantly, checking for the ball needing to bounce.
     CGRect ball = _ballView.frame; //first, making a variable for the frame of the ball!
     ball = CGRectMake(ball.origin.x + ballDirection.x, ball.origin.y + ballDirection.y, ball.size.width, ball.size.height); //second, making the ball's frame move in ballDirection, declared in the header file
     
@@ -189,6 +192,9 @@
     if(CGRectIntersectsRect(ball, _player1)) {
         ballDirection.x = -ballDirection.x+1;
     }
+    if(CGRectIntersectsRect(ball, _player2View.frame)) {
+        ballDirection.x = -ballDirection.x-1;
+    }
     if (ball.origin.y + ball.size.height > self.view.bounds.size.height) {
         ballDirection.y = -ballDirection.y-.5;
     }
@@ -196,6 +202,15 @@
         ballDirection.y = -ballDirection.y+.5;
     }
     _ballView.frame = ball;
+    // For correct intersection: Search CGRectIntersection
+}
+
+#pragma mark - Player 2
+
+-(void)player2Move {
+    CGRect player2 = _player2View.frame;
+    player2 = CGRectMake(player2.origin.x, _ballView.frame.origin.y, player2.size.width, player2.size.height);
+    _player2View.frame = player2;
 }
 
 @end
