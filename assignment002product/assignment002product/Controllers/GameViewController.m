@@ -23,7 +23,6 @@
 @end
 
 @implementation GameViewController
-@synthesize ball;
 
 #pragma mark - Initialization
 - (void)viewDidLoad {
@@ -48,11 +47,15 @@
     
     UIImage *ball1 = [UIImage imageNamed:@"ball1.png"];
     CGRect ballFrame = CGRectMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2, 44, 44);
-    UIImageView *ballView = [[UIImageView alloc] initWithFrame:ballFrame];
-    ballView.image = ball1;
-    [self.view addSubview:ballView];
-    ballPosition = CGPointMake(ballFrame.origin.x, ballFrame.origin.y);
-    [CADisplayLink displayLinkWithTarget:self selector:(bounce)];
+    _ballView = [[UIImageView alloc] initWithFrame:ballFrame];
+    _ballView.image = ball1;
+    [self.view addSubview:_ballView];
+    ballDirection = CGPointMake(1.f, 1.f); //makes the ball have an initial direction
+    
+    //setup for the ballDisplayLink, the "timer" that will be updating the ball's movement.
+    _ballDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(bounce)];
+    [_ballDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -169,16 +172,21 @@
 
 #pragma mark - Ball!
 
--(void)bounce {
-    ball.center = CGPointMake(ball.center.x + ballPosition.x, ball.center.y +ballPosition.y);
-    if (ball.center.x > self.view.bounds.size.width || ball.center.x < 0) {
-        ballPosition.x = -ballPosition.x;
+-(void)bounce{ // method that will be called constantly, checking for the ball needing to bounce.
+    CGRect ball = _ballView.frame; //first, making a variable for the frame of the ball!
+    ball = CGRectMake(ball.origin.x + ballDirection.x, ball.origin.y + ballDirection.y, ball.size.width, ball.size.height); //second, making the ball's frame move in ballDirection, declared in the header file
+    
+    // bouncy code
+    if (ball.origin.x + ball.size.width > self.view.bounds.size.width || ball.origin.x < 0) {
+        ballDirection.x = -ballDirection.x;
     }
-    if (ball.center.y > self.view.bounds.size.height || ball.center.y < 0) {
-        ballPosition.y = -ballPosition.y;
+    if (ball.origin.y + ball.size.height > self.view.bounds.size.height || ball.origin.y < 0) {
+        ballDirection.y = -ballDirection.y;
     }
+    NSLog(@"BOuncey Time");
+    _ballView.frame = ball;
 }
-
+ 
 
 
 
