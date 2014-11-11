@@ -53,11 +53,13 @@
     _ballView = [[UIImageView alloc] initWithFrame:ballFrame];
     _ballView.image = ball1;
     [self.view addSubview:_ballView];
-    _ballDirection = [self initialBallDirection]; //makes the ball have an initial direction
+    _ballDirection = [self initialBallDirection]; //makes the ball have an initial direction - set in below helper method
     
     //setup for the ballDisplayLink, the "timer" that will be updating the ball's movement.
     _ballDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(bounce)];
     [_ballDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    
+    _frameCounter = 0;
 
 }
 
@@ -66,6 +68,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Helper method to randomly set the ballDirection
 -(CGPoint)initialBallDirection {
     CGPoint returnPoint = CGPointZero;
     NSInteger rand4 = arc4random_uniform(4);
@@ -120,21 +123,6 @@
     }
 }
 
-/* First try at UIPanGestureRecognizer code
- -(void)dragPaddle:(UIPanGestureRecognizer *)sender {
-    if (sender.state == UIGestureRecognizerStateBegan) {
-        self.firstY = sender.view.center.y;
-        NSLog(@"%f",self.firstY);
-    }
-    [sender setMinimumNumberOfTouches:1];
-    [self.view bringSubviewToFront:sender.view];
-    CGPoint translation = [sender translationInView:self.view];
-    [sender setTranslation:CGPointMake(0, self.firstY + [sender translationInView:self.view].y) inView:self.view];
-    NSLog(@"%@", NSStringFromCGPoint(translation));
-}
- */
-
-
 -(void)didPossiblePan:( UIPanGestureRecognizer* )panGesture {
     NSLog(@"Hey look it happened, didPossiblePan!");
 }
@@ -170,21 +158,6 @@
                             inView:self.view];
     }
     _player1 = panGesture.view.frame;
-  
-  /* Second try at UIPanGestureRecognizer code
-   
-    Changed from self.view to panGesture.view, moves correctly. Go Figure!
-    CGPoint currentPoint = [panGesture locationInView:panGesture.view];
-    CGPoint deltaPoint = CGPointMake(currentPoint.x - _initialPoint.x, currentPoint.y - _initialPoint.y);
-    UIImageView *paddle = (UIImageView *)panGesture.view;
-    CGRect paddleFrame = paddle.frame;
-    NSLog (@"paddleFrame.origin.y == %f" , paddleFrame.origin.y);
-    NSLog(@"current point == %@" , NSStringFromCGPoint(currentPoint));
-    NSLog(@"delta point == %@" , NSStringFromCGPoint(deltaPoint));
-    paddleFrame = CGRectMake(paddleFrame.origin.x, paddleFrame.origin.y + deltaPoint.y, paddleFrame.size.width, paddleFrame.size.height);
-    paddle.Frame = paddleFrame;
-   */
-
 }
 
 // What happens when you pick your finger up
@@ -235,7 +208,17 @@
 
 -(void)player2Move {
     CGRect player2 = _player2View.frame;
-    player2 = CGRectMake(player2.origin.x, _ballView.frame.origin.y, player2.size.width, player2.size.height);
+//    player2 = CGRectMake(player2.origin.x, _ballView.frame.origin.y, player2.size.width, player2.size.height);
+//    _player2View.frame = player2;
+//    _frameCounter++;
+//    if (!(_frameCounter%2)) {
+        if (_ballView.frame.origin.y > player2.origin.y) {
+            player2 = CGRectMake(player2.origin.x, player2.origin.y + 3, player2.size.width, player2.size.height);
+        }
+        if (_ballView.frame.origin.y < player2.origin.y) {
+            player2 = CGRectMake(player2.origin.x, player2.origin.y - 3, player2.size.width, player2.size.height);
+        }
+//  }
     _player2View.frame = player2;
 }
 @end

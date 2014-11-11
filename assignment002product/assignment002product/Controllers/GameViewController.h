@@ -19,6 +19,8 @@
     
     UIImageView *_player2View;
     CADisplayLink *_player2DisplayLink;
+    
+    NSInteger _frameCounter;
 }
 
 
