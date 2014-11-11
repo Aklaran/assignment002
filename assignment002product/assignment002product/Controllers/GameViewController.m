@@ -177,12 +177,21 @@
     ball = CGRectMake(ball.origin.x + ballDirection.x, ball.origin.y + ballDirection.y, ball.size.width, ball.size.height); //second, making the ball's frame move in ballDirection, declared in the header file
     
     // bouncy code
-    if (ball.origin.x + ball.size.width > self.view.bounds.size.width || ball.origin.x < 0) {
+    if (ball.origin.x + ball.size.width > self.view.bounds.size.width) {
         ballDirection.x = -ballDirection.x;
+        NSLog(@"Player 1 Scores");
     }
-    if (ball.origin.y + ball.size.height > self.view.bounds.size.height || ball.origin.y < 0) {
-        ballDirection.y = -ballDirection.y;
+    if (ball.origin.x < 0) {
+        ballDirection.x = -ballDirection.x;
+        NSLog(@"Player 2 Scores");
     }
+    if (ball.origin.y + ball.size.height > self.view.bounds.size.height) {
+        ballDirection.y = -ballDirection.y-.5;
+    }
+    if (ball.origin.y < 0) {
+        ballDirection.y = -ballDirection.y+.5;
+    }
+
     NSLog(@"BOuncey Time");
     _ballView.frame = ball;
 }
