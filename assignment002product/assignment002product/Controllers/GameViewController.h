@@ -11,7 +11,7 @@
 @interface GameViewController : UIViewController
 {
     CGPoint _initialPoint;
-    CGPoint ballDirection;
+    CGPoint _ballDirection;
     UIImageView *_ballView;
     CADisplayLink* _ballDisplayLink;
     

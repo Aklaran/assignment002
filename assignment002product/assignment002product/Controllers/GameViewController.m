@@ -20,7 +20,7 @@
 
 -(void)bounce;
 -(void)player2Move;
-
+-(CGPoint)initialBallDirection;
 @end
 
 @implementation GameViewController
@@ -53,7 +53,7 @@
     _ballView = [[UIImageView alloc] initWithFrame:ballFrame];
     _ballView.image = ball1;
     [self.view addSubview:_ballView];
-    ballDirection = CGPointMake(1.f, 1.f); //makes the ball have an initial direction
+    _ballDirection = [self initialBallDirection]; //makes the ball have an initial direction
     
     //setup for the ballDisplayLink, the "timer" that will be updating the ball's movement.
     _ballDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(bounce)];
@@ -66,6 +66,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(CGPoint)initialBallDirection {
+    CGPoint returnPoint = CGPointZero;
+    NSInteger rand4 = arc4random_uniform(4);
+    switch (rand4) {
+        case 0:
+            returnPoint.x = 1.f;
+            returnPoint.y = 1.f;
+            break;
+        case 1:
+            returnPoint.x = -1.f;
+            returnPoint.y = 1.f;
+            break;
+        case 2:
+            returnPoint.x = 1.f;
+            returnPoint.y = -1.f;
+            break;
+        case 3:
+            returnPoint.x = -1.f;
+            returnPoint.y = -1.f;
+            break;
+        default:
+            NSLog(@"initialBallDirection error");
+            break;
+    }
+    return returnPoint;
+}
 
 #pragma mark  - UIPanGestureRecognizer Methods
 // This method encompasses all the didPan possible actions. When one of them happens, it will "switch" to the correct method.
@@ -178,28 +204,28 @@
 
 -(void)bounce { // method that will be called constantly, checking for the ball needing to bounce.
     CGRect ball = _ballView.frame; //first, making a variable for the frame of the ball!
-    ball = CGRectMake(ball.origin.x + ballDirection.x, ball.origin.y + ballDirection.y, ball.size.width, ball.size.height); //second, making the ball's frame move in ballDirection, declared in the header file
+    ball = CGRectMake(ball.origin.x + _ballDirection.x, ball.origin.y + _ballDirection.y, ball.size.width, ball.size.height); //second, making the ball's frame move in _ballDirection, declared in the header file
     
     // bouncy code
     if (ball.origin.x + ball.size.width > self.view.bounds.size.width) {
-        ballDirection.x = -ballDirection.x-1;
+        _ballDirection.x = -_ballDirection.x-1;
         NSLog(@"Player 1 Scores");
     }
     if (ball.origin.x < 0) {
-        ballDirection.x = -ballDirection.x+1;
+        _ballDirection.x = -_ballDirection.x+1;
         NSLog(@"Player 2 Scores");
     }
     if(CGRectIntersectsRect(ball, _player1)) {
-        ballDirection.x = -ballDirection.x+1;
+        _ballDirection.x = -_ballDirection.x+1;
     }
     if(CGRectIntersectsRect(ball, _player2View.frame)) {
-        ballDirection.x = -ballDirection.x-1;
+        _ballDirection.x = -_ballDirection.x-1;
     }
     if (ball.origin.y + ball.size.height > self.view.bounds.size.height) {
-        ballDirection.y = -ballDirection.y-.5;
+        _ballDirection.y = -_ballDirection.y-.5;
     }
     if (ball.origin.y < 0) {
-        ballDirection.y = -ballDirection.y+.5;
+        _ballDirection.y = -_ballDirection.y+.5;
     }
     _ballView.frame = ball;
     // For correct intersection: Search CGRectIntersection
@@ -212,5 +238,4 @@
     player2 = CGRectMake(player2.origin.x, _ballView.frame.origin.y, player2.size.width, player2.size.height);
     _player2View.frame = player2;
 }
-
 @end

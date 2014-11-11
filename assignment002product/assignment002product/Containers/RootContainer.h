@@ -15,6 +15,6 @@
 @property (nonatomic) UIStoryboard *menuStoryboard;
 
 -(void)menuTransition:(UIViewController *)nextVC;
--(void)createGameVC:(UIViewController *)GameVC;
+//-(void)createGameVC:(UIViewController *)GameVC;
 
 @end
