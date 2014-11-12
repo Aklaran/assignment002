@@ -16,7 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    _player1Score = 0;
+    _player2Score = 0;
+    
+    _scorer = nil;
+    
+    _player1Display.text = [NSString stringWithFormat: @"%ld", (long)_player1Score];
+    _player2Display.text = [NSString stringWithFormat: @"%ld", (long)_player2Score];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,6 +31,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)updateScore {
+    NSLog(@"updateScore called with scorer == %d" , _scorer);
+    if (_scorer == 0) {
+        _player1Score++;
+        NSLog(@"player1Score == %ld" , (long)_player1Score);
+        _player1Display.text = [NSString stringWithFormat: @"%ld", (long)_player1Score];
+        _scorer = nil;
+    }
+    if (_scorer == 1) {
+        _player2Score++;
+        NSLog(@"player2Score == %ld" , (long)_player2Score);
+        _player2Display.text = [NSString stringWithFormat: @"%ld", (long)_player2Score];
+        _scorer = nil;
+    }
+}
 /*
 #pragma mark - Navigation
 

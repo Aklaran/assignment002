@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FannyMcFattersonViewController.h"
 
 @interface GameViewController : UIViewController
 {
@@ -22,6 +23,8 @@
     
     NSInteger _frameCounter;
 }
+
+@property (weak, nonatomic) FannyMcFattersonViewController *scoreVC;
 
 
 

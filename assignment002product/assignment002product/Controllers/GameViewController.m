@@ -7,6 +7,8 @@
 //
 
 #import "GameViewController.h"
+#import "FannyMcFattersonViewController.h"
+#import "RootContainer.h"
 
 @interface GameViewController ()
 
@@ -60,7 +62,12 @@
     [_ballDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
     _frameCounter = 0;
+    
+}
 
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _scoreVC = (FannyMcFattersonViewController *)((RootContainer *)self.parentViewController).ScoreVC;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,10 +190,14 @@
     if (ball.origin.x + ball.size.width > self.view.bounds.size.width) {
         _ballDirection.x = -_ballDirection.x-1;
         NSLog(@"Player 1 Scores");
+        _scoreVC.scorer = 0;
+        [_scoreVC updateScore];
     }
     if (ball.origin.x < 0) {
         _ballDirection.x = -_ballDirection.x+1;
         NSLog(@"Player 2 Scores");
+        _scoreVC.scorer = 1;
+        [_scoreVC updateScore];
     }
     if(CGRectIntersectsRect(ball, _player1)) {
         _ballDirection.x = -_ballDirection.x+1;

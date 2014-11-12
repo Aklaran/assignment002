@@ -10,4 +10,14 @@
 
 @interface FannyMcFattersonViewController : UIViewController
 
+@property (assign, nonatomic) NSInteger player1Score;
+@property (assign, nonatomic) NSInteger player2Score;
+
+@property (weak, nonatomic) IBOutlet UILabel *player1Display;
+@property (weak, nonatomic) IBOutlet UILabel *player2Display;
+
+@property (assign, nonatomic) BOOL scorer;
+
+-(void)updateScore;
+
 @end

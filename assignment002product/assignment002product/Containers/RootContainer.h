@@ -12,7 +12,10 @@
 
 @property (weak, nonatomic) UIViewController *MenuVC;
 @property (weak, nonatomic) UIViewController *GameVC;
-@property (nonatomic) UIStoryboard *menuStoryboard;
+@property (weak, nonatomic) UIViewController *ScoreVC;
+@property (nonatomic) UIStoryboard *mainStoryboard;
+
+
 
 -(void)menuTransition:(UIViewController *)nextVC;
 //-(void)createGameVC:(UIViewController *)GameVC;
