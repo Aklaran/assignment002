@@ -24,6 +24,8 @@
     
     _player1Display.text = [NSString stringWithFormat: @"%ld", (long)_player1Score];
     _player2Display.text = [NSString stringWithFormat: @"%ld", (long)_player2Score];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +47,7 @@
         _player2Display.text = [NSString stringWithFormat: @"%ld", (long)_player2Score];
         _scorer = nil;
     }
+    
 }
 /*
 #pragma mark - Navigation

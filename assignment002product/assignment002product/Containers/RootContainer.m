@@ -21,6 +21,13 @@
     
     //Creating UIViewController variable "currentVC" of MenuViewController's spot in the main storyboard
     _mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *scoreVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
+    
+    [self addChildViewController:scoreVC];
+    [scoreVC didMoveToParentViewController:self];
+    [self.view addSubview:scoreVC.view];
+    self.ScoreVC = scoreVC;
+    
     UIViewController *currentVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
     
     // Adding currentVC to the RootContainer
@@ -30,13 +37,6 @@
     
     // Setting the class (weak) variable equal to its local variable
     self.MenuVC = currentVC;
-    
-    UIViewController *scoreVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
-    
-    [self addChildViewController:scoreVC];
-    [scoreVC didMoveToParentViewController:self];
-    [self.view addSubview:scoreVC.view];
-    self.ScoreVC = scoreVC;
     
 }
 
@@ -59,9 +59,10 @@
                          _MenuVC.view.frame = currentFrame;
                      }
                      completion:^(BOOL finished){
-                         
+    
         
                      }];
+    
 }
 
 // -(void)createGameVC:(UIViewController *)GameVC; {
