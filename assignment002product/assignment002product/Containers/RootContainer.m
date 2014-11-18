@@ -13,6 +13,31 @@
 
 @end
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// All the stuff the Category Methods basically just makes it so we have to do less casting, and we can move stuff around easier.  A sure-fire way to get to RootContainer from anywhere!
+#pragma mark    -   UIViewController+RootContainer Category Implementation
+
+@implementation UIViewController ( RootContainer )
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark    -   Category Methods
+
+- ( RootContainer* )rootContainer
+{
+    UIViewController* viewController = self.parentViewController;
+    
+    while ( !( viewController == nil || [viewController isKindOfClass:[RootContainer class]] ) )
+    {
+        viewController = viewController.parentViewController;
+    }
+    
+    return ( RootContainer* )viewController;
+}
+
+@end
+
+#pragma mark - RootContainer Implementation
+
 @implementation RootContainer
 
 - (void)viewDidLoad {
@@ -37,6 +62,13 @@
     
     // Setting the class (weak) variable equal to its local variable
     self.MenuVC = currentVC;
+    
+    
+    // Adding gameVC as a child so I have a variable to use in other classes to reference GameVC.
+    UIViewController *gameVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+    [self addChildViewController:gameVC];
+    [gameVC didMoveToParentViewController:self];
+    self.GameVC = gameVC;
     
 }
 

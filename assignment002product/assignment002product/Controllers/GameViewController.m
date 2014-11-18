@@ -20,6 +20,7 @@
 -(void)didCancelPan:( UIPanGestureRecognizer* )panGesture;
 -(void)didFailPan:( UIPanGestureRecognizer* )panGesture;
 
+-(void)update;
 -(void)bounce;
 -(void)player2Move;
 -(CGPoint)initialBallDirection;
@@ -47,23 +48,10 @@
     _player2View = [[UIImageView alloc] initWithFrame:paddle2Frame];
     _player2View.image = paddle2;
     [self.view addSubview:_player2View];
-    _player2DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(player2Move)];
-    [_player2DisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    
-    UIImage *ball1 = [UIImage imageNamed:@"ball1.png"];
-    CGRect ballFrame = CGRectMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2, 44, 44);
-    _ballView = [[UIImageView alloc] initWithFrame:ballFrame];
-    _ballView.image = ball1;
-    [self.view addSubview:_ballView];
-    _ballDirection = [self initialBallDirection]; //makes the ball have an initial direction - set in below helper method
-    
-    //setup for the ballDisplayLink, the "timer" that will be updating the ball's movement.
-    _ballDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(bounce)];
-    [_ballDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    
+//    _player2DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(player2Move)];
+//    [_player2DisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     _frameCounter = 0;
-    
-}
+    }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -73,6 +61,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)ballReset {
+    UIImage *ball1 = [UIImage imageNamed:@"ball1.png"];
+    CGRect ballFrame = CGRectMake(self.view.bounds.size.width / 2, self.view.bounds.size.height / 2, 44, 44);
+    _ballView = [[UIImageView alloc] initWithFrame:ballFrame];
+    _ballView.image = ball1;
+    _ballDirection = [self initialBallDirection]; //makes the ball have an initial direction - set in below helper method
+    
+    [self.view addSubview:_ballView];
+    
+    
+    //setup for the ballDisplayLink, the "timer" that will be updating the ball's movement.
+    _mainDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
+    [_mainDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    
 }
 
 // Helper method to randomly set the ballDirection
@@ -181,6 +185,13 @@
 }
 
 #pragma mark - Ball!
+
+-(void)update {
+    [self bounce];
+    [self player2Move];
+    
+    NSLog(@"%@", _ballView.image);
+}
 
 -(void)bounce { // method that will be called constantly, checking for the ball needing to bounce.
     CGRect ball = _ballView.frame; //first, making a variable for the frame of the ball!

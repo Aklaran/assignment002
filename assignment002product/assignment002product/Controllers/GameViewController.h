@@ -14,7 +14,7 @@
     CGPoint _initialPoint;
     CGPoint _ballDirection;
     UIImageView *_ballView;
-    CADisplayLink* _ballDisplayLink;
+    CADisplayLink* _mainDisplayLink;
     
     CGRect _player1;
     
@@ -26,7 +26,6 @@
 
 @property (weak, nonatomic) FannyMcFattersonViewController *scoreVC;
 
+-(void)ballReset;
 
-
-//-(void)dragPaddle:(UIPanGestureRecognizer *)sender;
 @end

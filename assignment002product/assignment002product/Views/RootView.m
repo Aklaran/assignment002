@@ -20,16 +20,16 @@
 - ( UIView* )hitTest:( CGPoint )point withEvent:( UIEvent* )event {
     
     __weak UIView *hitTestView = [self viewWithTag:123];
-    //Play Button
+    //If you click the play button...
     if (hitTestView && hitTestView != [hitTestView hitTest:point withEvent:event]) {
         NSLog(@"%ld", (long)[hitTestView hitTest:point withEvent:event].tag);
         return [hitTestView hitTest:point withEvent:event];
     }
     
     hitTestView = [self viewWithTag:789];
-    //Scores
+    // If you click on the FannyView and not on the pause button
     if (hitTestView) {
-        NSLog(@"fuck");
+        NSLog(@"Tryna play the game");
         return [[self viewWithTag:456] hitTest:point withEvent:event];
     }
 

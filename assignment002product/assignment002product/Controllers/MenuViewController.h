@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameViewController.h"
 //Declaring the existence of a RootContainer class w/o referencing it (avoiding recursive error)
 @class RootContainer;
 
@@ -14,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *playButton;
 @property (weak, nonatomic) RootContainer *rootContainer;
+@property (weak, nonatomic) GameViewController *GameVC;
 
 -(void)playButtonPress:(UITapGestureRecognizer *)sender;
 
