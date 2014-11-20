@@ -44,8 +44,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    //Creating UIViewController variable "currentVC" of MenuViewController's spot in the main storyboard
     _mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    // Adding gameVC as a child so I have a variable to use in other classes to reference GameVC.
+    UIViewController *gameVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"GameViewController"];
+    [self addChildViewController:gameVC];
+    [gameVC didMoveToParentViewController:self];
+    [self.view addSubview:gameVC.view];
+    self.GameVC = gameVC;
+    
+    //Creating UIViewController variable "currentVC" of MenuViewController's spot in the main storyboard
+    
     UIViewController *scoreVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"ScoreViewController"];
     
     [self addChildViewController:scoreVC];
@@ -64,11 +73,7 @@
     self.MenuVC = currentVC;
     
     
-    // Adding gameVC as a child so I have a variable to use in other classes to reference GameVC.
-    UIViewController *gameVC = [_mainStoryboard instantiateViewControllerWithIdentifier:@"GameViewController"];
-    [self addChildViewController:gameVC];
-    [gameVC didMoveToParentViewController:self];
-    self.GameVC = gameVC;
+    
     
 }
 
@@ -89,6 +94,7 @@
                          CGRect currentFrame = _MenuVC.view.frame;
                          currentFrame.origin.y = currentFrame.size.height;
                          _MenuVC.view.frame = currentFrame;
+                         
                      }
                      completion:^(BOOL finished){
     

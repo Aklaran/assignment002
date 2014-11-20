@@ -35,7 +35,6 @@
     //Creating images for the two paddles + the ball, also adding the pan gesture
     UIImage *paddle1 = [UIImage imageNamed:@"paddle1.png"];
     CGRect paddle1Frame = CGRectMake(0, self.view.bounds.size.height /2 -44, 44, 100);
-    NSLog(@"paddle1Frame == %@", NSStringFromCGRect(paddle1Frame));
     UIImageView *paddle1View = [[UIImageView alloc] initWithFrame:paddle1Frame];
     paddle1View.image = paddle1;
     paddle1View.userInteractionEnabled = YES;
@@ -48,9 +47,10 @@
     _player2View = [[UIImageView alloc] initWithFrame:paddle2Frame];
     _player2View.image = paddle2;
     [self.view addSubview:_player2View];
-//    _player2DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(player2Move)];
-//    [_player2DisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    //    _player2DisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(player2Move)];
+    //    [_player2DisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     _frameCounter = 0;
+  
     }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -72,7 +72,8 @@
     
     [self.view addSubview:_ballView];
     
-    
+    NSLog(@"ballView == %@", _ballView.image);
+   
     //setup for the ballDisplayLink, the "timer" that will be updating the ball's movement.
     _mainDisplayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(update)];
     [_mainDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
@@ -141,7 +142,6 @@
 // What happens when you start to drag
 -(void)didBeginPan:( UIPanGestureRecognizer* )panGesture {
     _initialPoint = [panGesture locationInView:self.view];
-    NSLog(@"%@", NSStringFromCGPoint(_initialPoint));
 }
 
 // What happens when you drag an amount.  Goal is: Paddle moves with your finger.
@@ -189,8 +189,6 @@
 -(void)update {
     [self bounce];
     [self player2Move];
-    
-    NSLog(@"%@", _ballView.image);
 }
 
 -(void)bounce { // method that will be called constantly, checking for the ball needing to bounce.

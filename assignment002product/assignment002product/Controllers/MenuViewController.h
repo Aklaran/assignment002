@@ -15,7 +15,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *playButton;
 @property (weak, nonatomic) RootContainer *rootContainer;
-@property (weak, nonatomic) GameViewController *GameVC;
 
 -(void)playButtonPress:(UITapGestureRecognizer *)sender;
 

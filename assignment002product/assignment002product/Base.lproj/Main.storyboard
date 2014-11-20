@@ -13,9 +13,6 @@
                     <containerView key="view" opaque="NO" contentMode="scaleToFill" id="Jwe-fs-KUn" customClass="RootView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <connections>
-                            <segue destination="0Sr-Ht-sDb" kind="embed" id="frd-OS-wWC"/>
-                        </connections>
                     </containerView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -38,13 +38,11 @@
     {
         //CASTING _rootContainer as self.parentViewController. Somehow this gives it all the permissions it needs to access all of its properties & methods.
         _rootContainer = (RootContainer *)self.parentViewController;
-        
-        _GameVC = ( GameViewController* )self.rootContainer.GameVC;
 
         
-        [_GameVC ballReset];
+        [(GameViewController *)self.rootContainer.GameVC ballReset];
         
-        NSLog(@"viewsss %@", _GameVC.view.subviews);
+        
         //call out the method (transition) within RootContainer that should take place when the playButton is pressed. Passing in the storyboard file for "GameViewController" as NextVC in the menuTransition method.
         [_rootContainer menuTransition:[self.storyboard instantiateViewControllerWithIdentifier:@"GameViewController"]];
     }
