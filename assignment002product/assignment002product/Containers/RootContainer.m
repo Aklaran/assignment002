@@ -9,10 +9,6 @@
 #import "RootContainer.h"
 #import "MenuViewController.h"
 
-@interface RootContainer ()
-
-@end
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // All the stuff the Category Methods basically just makes it so we have to do less casting, and we can move stuff around easier.  A sure-fire way to get to RootContainer from anywhere!
 #pragma mark    -   UIViewController+RootContainer Category Implementation

@@ -13,18 +13,24 @@
 {
     CGPoint _initialPoint;
     CGPoint _ballDirection;
-    UIImageView *_ballView;
     CADisplayLink* _mainDisplayLink;
     
     CGRect _player1;
     
-    UIImageView *_player2View;
-    CADisplayLink *_player2DisplayLink;
-    
     NSInteger _frameCounter;
+    
+    CGRect _player1InitialFrame;
+    CGRect _player2InitialFrame;
+    CGRect _ballInitialFrame;
+    
+    
+    BOOL _started;
 }
 
 @property (weak, nonatomic) FannyMcFattersonViewController *scoreVC;
+@property (weak, nonatomic) IBOutlet UIImageView *paddle1;
+@property (weak, nonatomic) IBOutlet UIImageView *paddle2;
+@property (weak, nonatomic) IBOutlet UIImageView *ball;
 
 -(void)ballReset;
 

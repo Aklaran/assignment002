@@ -109,9 +109,25 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="456" contentMode="center" id="hp4-H7-csh">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle1.png" translatesAutoresizingMaskIntoConstraints="NO" id="j24-Hf-Onz">
+                                <rect key="frame" x="0.0" y="250" width="44" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle1.png" translatesAutoresizingMaskIntoConstraints="NO" id="NfQ-wd-l6c">
+                                <rect key="frame" x="556" y="250" width="44" height="100"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball1.png" translatesAutoresizingMaskIntoConstraints="NO" id="rtG-nC-Ugs">
+                                <rect key="frame" x="278" y="278" width="44" height="44"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.122896106" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="ball" destination="rtG-nC-Ugs" id="Vj0-7e-Ubo"/>
+                        <outlet property="paddle1" destination="j24-Hf-Onz" id="lSo-rm-JI9"/>
+                        <outlet property="paddle2" destination="NfQ-wd-l6c" id="7Af-V5-ENK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O7s-0b-yN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,5 +135,7 @@
     </scenes>
     <resources>
         <image name="PlayButton.png" width="500" height="500"/>
+        <image name="ball1.png" width="64" height="64"/>
+        <image name="paddle1.png" width="64" height="256"/>
     </resources>
 </document>
