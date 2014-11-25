@@ -79,7 +79,12 @@
 }
 
 -(void)pauseGame {
-    _started = NO;
+    if (_started == YES) {
+        _started = NO;
+    }
+    else if (_started == NO) {
+        _started = YES;
+    }
 }
 
 // Helper method to randomly set the ballDirection
