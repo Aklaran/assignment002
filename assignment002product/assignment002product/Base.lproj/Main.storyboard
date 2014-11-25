@@ -40,7 +40,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="605" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oK-a2-9O1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oK-a2-9O1">
                                 <rect key="frame" x="472" y="5" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="OB7-89-2Yo"/>
@@ -49,6 +49,7 @@
                                 <state key="normal" image="pause-button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="unpause.png"/>
                                 <connections>
                                     <action selector="didPressPause:" destination="lsQ-4W-1VE" eventType="touchUpInside" id="00Q-CS-oJF"/>
                                 </connections>
@@ -152,5 +153,6 @@
         <image name="ball1.png" width="64" height="64"/>
         <image name="paddle1.png" width="64" height="256"/>
         <image name="pause-button.png" width="128" height="128"/>
+        <image name="unpause.png" width="600" height="600"/>
     </resources>
 </document>

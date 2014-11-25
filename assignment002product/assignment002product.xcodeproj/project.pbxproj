@@ -22,6 +22,7 @@
 		1ED23CBF19EDA1510083C830 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED23CBE19EDA1510083C830 /* GameViewController.m */; };
 		1ED23CC219EDA1990083C830 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED23CC119EDA1990083C830 /* MenuViewController.m */; };
 		1ED23CC519EDA2A20083C830 /* PlayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED23CC419EDA2A20083C830 /* PlayButton.png */; };
+		1EE91ACC1A24FD43001F9A5E /* unpause.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EE91ACB1A24FD43001F9A5E /* unpause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		1ED23CC019EDA1990083C830 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = assignment002product/Controllers/MenuViewController.h; sourceTree = SOURCE_ROOT; };
 		1ED23CC119EDA1990083C830 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = assignment002product/Controllers/MenuViewController.m; sourceTree = SOURCE_ROOT; };
 		1ED23CC419EDA2A20083C830 /* PlayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButton.png; sourceTree = "<group>"; };
+		1EE91ACB1A24FD43001F9A5E /* unpause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unpause.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		1ED23CC319EDA2A20083C830 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				1EE91ACB1A24FD43001F9A5E /* unpause.png */,
 				1E97E18B19FEC27400352631 /* ball1.png */,
 				1E97E18919FEC20600352631 /* paddle1.png */,
 				1ED23CC419EDA2A20083C830 /* PlayButton.png */,
@@ -267,6 +270,7 @@
 				1E97E18C19FEC27400352631 /* ball1.png in Resources */,
 				1ED23C9819ED9CD00083C830 /* Main.storyboard in Resources */,
 				1E47E29D1A1FB85300F43C86 /* pause-button.png in Resources */,
+				1EE91ACC1A24FD43001F9A5E /* unpause.png in Resources */,
 				1E97E18A19FEC20600352631 /* paddle1.png in Resources */,
 				1ED23C9D19ED9CD00083C830 /* LaunchScreen.xib in Resources */,
 				1ED23C9A19ED9CD00083C830 /* Images.xcassets in Resources */,

@@ -13,7 +13,6 @@
 // 123 == menu view controller
 //456 == game
 //789 == scores
-//605 == pauseButton
 // a hittest determines if you are hitting something that is NOT the view designated (but resides within the vew designated. So like a subview. returns the view that is being tapped.
 
 // Whatever is returned in this method
@@ -30,10 +29,8 @@
     // If you click on the FannyView and not on the pause button -- WORKS FOR PADDLE
     if (hitTestView && hitTestView != [hitTestView hitTest:point withEvent:event]) {
         return [hitTestView hitTest:point withEvent:event];
-
     }
     if (hitTestView == [hitTestView hitTest:point withEvent:event]) {
-        NSLog(@"%@", [hitTestView hitTest:point withEvent:event]);
         return [[self viewWithTag:456] hitTest:point withEvent:event];
         
     }

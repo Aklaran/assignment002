@@ -38,6 +38,7 @@
 -(IBAction)didPressPause:(id)sender {
     _rootContainer = ( RootContainer* )self.parentViewController;
     [( GameViewController*)self.rootContainer.GameVC pauseGame];
+//    [_pauseButton setImage:[UIImage imageNamed:@"unpause.png"] forState:UIControlStateNormal];
 }
 
 -(void)updateScore {
