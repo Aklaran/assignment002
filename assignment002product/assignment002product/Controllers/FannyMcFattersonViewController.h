@@ -11,6 +11,9 @@
 @class RootContainer;
 
 @interface FannyMcFattersonViewController : UIViewController
+{
+    BOOL _isPaused;
+}
 
 @property (assign, nonatomic) NSInteger player1Score;
 @property (assign, nonatomic) NSInteger player2Score;

@@ -67,7 +67,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pauseButton" destination="XpP-0K-w6I" id="6cS-ag-6U3"/>
+                        <outlet property="pauseButton" destination="4oK-a2-9O1" id="J60-3n-MTd"/>
                         <outlet property="player1Display" destination="gkI-Nf-rlu" id="yaI-G0-Da3"/>
                         <outlet property="player2Display" destination="DyP-1G-hel" id="bjp-Db-Qq9"/>
                     </connections>

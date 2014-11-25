@@ -12,6 +12,8 @@
 
 @interface FannyMcFattersonViewController ()
 
+
+
 @end
 
 @implementation FannyMcFattersonViewController
@@ -27,6 +29,7 @@
     _player1Display.text = [NSString stringWithFormat: @"%ld", (long)_player1Score];
     _player2Display.text = [NSString stringWithFormat: @"%ld", (long)_player2Score];
     
+    _isPaused = NO;
 
 }
 
@@ -38,8 +41,16 @@
 -(IBAction)didPressPause:(id)sender {
     _rootContainer = ( RootContainer* )self.parentViewController;
     [( GameViewController*)self.rootContainer.GameVC pauseGame];
-//    [_pauseButton setImage:[UIImage imageNamed:@"unpause.png"] forState:UIControlStateNormal];
+    if (_isPaused == NO) {
+        [_pauseButton setImage:[UIImage imageNamed:@"unpause.png"] forState:UIControlStateNormal];
+        _isPaused = YES;
+    }
+    else if (_isPaused == YES) {
+        [_pauseButton setImage:[UIImage imageNamed:@"pause-button.png"] forState:UIControlStateNormal];
+        _isPaused = NO;
+    }
 }
+
 
 -(void)updateScore {
     NSLog(@"updateScore called with scorer == %d" , _scorer);
