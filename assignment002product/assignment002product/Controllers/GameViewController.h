@@ -33,5 +33,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ball;
 
 -(void)ballReset;
+-(void)pauseGame;
 
 @end

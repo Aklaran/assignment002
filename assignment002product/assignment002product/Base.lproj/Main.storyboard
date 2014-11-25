@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root Container-->
@@ -31,28 +29,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DyP-1G-hel">
-                                <rect key="frame" x="554" y="28" width="10" height="20.5"/>
+                                <rect key="frame" x="554" y="28" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkI-Nf-rlu">
-                                <rect key="frame" x="24" y="28" width="10" height="20.5"/>
+                                <rect key="frame" x="24" y="28" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="605" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oK-a2-9O1">
+                                <rect key="frame" x="472" y="5" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OB7-89-2Yo"/>
+                                    <constraint firstAttribute="width" constant="44" id="UOB-hC-QCS"/>
+                                </constraints>
+                                <state key="normal" image="pause-button.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressPause:" destination="lsQ-4W-1VE" eventType="touchUpInside" id="00Q-CS-oJF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gkI-Nf-rlu" firstAttribute="baseline" secondItem="DyP-1G-hel" secondAttribute="baseline" id="7Dh-2s-49t"/>
-                            <constraint firstItem="gkI-Nf-rlu" firstAttribute="leading" secondItem="XpP-0K-w6I" secondAttribute="leadingMargin" constant="8" id="CsF-uD-Ab3"/>
-                            <constraint firstItem="DyP-1G-hel" firstAttribute="leading" secondItem="gkI-Nf-rlu" secondAttribute="trailing" constant="520" id="PJf-re-y5G"/>
-                            <constraint firstItem="gkI-Nf-rlu" firstAttribute="top" secondItem="J6F-tz-FMr" secondAttribute="bottom" constant="8" symbolic="YES" id="Up8-DL-67Y"/>
-                            <constraint firstItem="gkI-Nf-rlu" firstAttribute="firstBaseline" secondItem="DyP-1G-hel" secondAttribute="firstBaseline" id="rIm-ad-MzA"/>
+                            <constraint firstItem="4oK-a2-9O1" firstAttribute="leading" secondItem="gkI-Nf-rlu" secondAttribute="trailing" constant="438" id="2Hb-xm-UI9"/>
+                            <constraint firstItem="DyP-1G-hel" firstAttribute="leading" secondItem="4oK-a2-9O1" secondAttribute="trailing" constant="38" id="CCb-7l-9GX"/>
+                            <constraint firstItem="DyP-1G-hel" firstAttribute="top" secondItem="J6F-tz-FMr" secondAttribute="bottom" constant="8" id="NAQ-ye-05j"/>
+                            <constraint firstItem="gkI-Nf-rlu" firstAttribute="leading" secondItem="XpP-0K-w6I" secondAttribute="leading" constant="24" id="OKw-K0-Zj4"/>
+                            <constraint firstItem="4oK-a2-9O1" firstAttribute="top" secondItem="XpP-0K-w6I" secondAttribute="top" constant="5" id="dsG-ql-hts"/>
+                            <constraint firstAttribute="trailing" secondItem="DyP-1G-hel" secondAttribute="trailing" constant="36" id="fgF-Bs-sFn"/>
+                            <constraint firstItem="gkI-Nf-rlu" firstAttribute="top" secondItem="J6F-tz-FMr" secondAttribute="bottom" constant="8" id="ps6-bd-211"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pauseButton" destination="XpP-0K-w6I" id="6cS-ag-6U3"/>
                         <outlet property="player1Display" destination="gkI-Nf-rlu" id="yaI-G0-Da3"/>
                         <outlet property="player2Display" destination="DyP-1G-hel" id="bjp-Db-Qq9"/>
                     </connections>
@@ -137,5 +151,6 @@
         <image name="PlayButton.png" width="500" height="500"/>
         <image name="ball1.png" width="64" height="64"/>
         <image name="paddle1.png" width="64" height="256"/>
+        <image name="pause-button.png" width="128" height="128"/>
     </resources>
 </document>

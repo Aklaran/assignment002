@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E47E29D1A1FB85300F43C86 /* pause-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E47E29C1A1FB85300F43C86 /* pause-button.png */; };
 		1E5E15B11A1535C200264C0B /* RootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5E15B01A1535C200264C0B /* RootView.m */; };
 		1E97E18A19FEC20600352631 /* paddle1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E97E18919FEC20600352631 /* paddle1.png */; };
 		1E97E18C19FEC27400352631 /* ball1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E97E18B19FEC27400352631 /* ball1.png */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E47E29C1A1FB85300F43C86 /* pause-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause-button.png"; sourceTree = "<group>"; };
 		1E5E15AF1A1535C200264C0B /* RootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootView.h; path = Views/RootView.h; sourceTree = "<group>"; };
 		1E5E15B01A1535C200264C0B /* RootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootView.m; path = Views/RootView.m; sourceTree = "<group>"; };
 		1E97E18919FEC20600352631 /* paddle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle1.png; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				1E97E18B19FEC27400352631 /* ball1.png */,
 				1E97E18919FEC20600352631 /* paddle1.png */,
 				1ED23CC419EDA2A20083C830 /* PlayButton.png */,
+				1E47E29C1A1FB85300F43C86 /* pause-button.png */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				1E97E18C19FEC27400352631 /* ball1.png in Resources */,
 				1ED23C9819ED9CD00083C830 /* Main.storyboard in Resources */,
+				1E47E29D1A1FB85300F43C86 /* pause-button.png in Resources */,
 				1E97E18A19FEC20600352631 /* paddle1.png in Resources */,
 				1ED23C9D19ED9CD00083C830 /* LaunchScreen.xib in Resources */,
 				1ED23C9A19ED9CD00083C830 /* Images.xcassets in Resources */,

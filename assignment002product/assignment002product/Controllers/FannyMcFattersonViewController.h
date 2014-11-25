@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class RootContainer;
+
 @interface FannyMcFattersonViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger player1Score;
@@ -17,6 +19,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *player2Display;
 
 @property (assign, nonatomic) BOOL scorer;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+
+@property (weak, nonatomic) RootContainer *rootContainer;
+
 
 -(void)updateScore;
 

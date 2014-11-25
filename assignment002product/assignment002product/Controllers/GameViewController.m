@@ -61,12 +61,6 @@
     [_mainDisplayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     
      _frameCounter = 0;
-    
-    NSLog(@"self.view.bounds %@", NSStringFromCGRect(self.view.bounds));
-    
-    NSLog(@"Ball %@", NSStringFromCGRect(_ball.frame));
-    NSLog(@"_paddle1 %@", NSStringFromCGRect(_paddle1.frame));
-    NSLog(@"_paddle2 %@", NSStringFromCGRect(_paddle2.frame));
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -81,12 +75,11 @@
     _paddle2.frame = _player2InitialFrame;
     _ball.frame = _ballInitialFrame;
     _ballDirection = [self initialBallDirection];
-    
-    NSLog(@"Ball %@", NSStringFromCGRect(_ball.frame));
-    NSLog(@"_paddle1 %@", NSStringFromCGRect(_paddle1.frame));
-    NSLog(@"_paddle2 %@", NSStringFromCGRect(_paddle2.frame));
-    
     _started = YES;
+}
+
+-(void)pauseGame {
+    _started = NO;
 }
 
 // Helper method to randomly set the ballDirection
@@ -208,6 +201,7 @@
     CGRect ball = _ball.frame; //first, making a variable for the frame of the ball!
     ball = CGRectMake(ball.origin.x + _ballDirection.x, ball.origin.y + _ballDirection.y, ball.size.width, ball.size.height); //second, making the ball's frame move in _ballDirection, declared in the header file
     
+    // Bouncy code
     if(CGRectIntersectsRect(ball, _player1)) {
         _ballDirection.x = -_ballDirection.x+1;
     }
@@ -225,10 +219,9 @@
     
     
     
-    // bouncy code
+    // Score code
     if (ball.origin.x + ball.size.width > self.view.bounds.size.width) {
         _started = NO;
-        _ballDirection.x = -_ballDirection.x-1;
         NSLog(@"Player 1 Scores");
         _scoreVC.scorer = 0;
         [_scoreVC updateScore];
@@ -236,7 +229,6 @@
     }
     if (ball.origin.x < 0) {
         _started = NO;
-        _ballDirection.x = -_ballDirection.x+1;
         NSLog(@"Player 2 Scores");
         _scoreVC.scorer = 1;
         [_scoreVC updateScore];

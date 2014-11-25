@@ -7,6 +7,8 @@
 //
 
 #import "FannyMcFattersonViewController.h"
+#import "RootContainer.h"
+#import "GameViewController.h"
 
 @interface FannyMcFattersonViewController ()
 
@@ -31,6 +33,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)didPressPause:(id)sender {
+    _rootContainer = ( RootContainer* )self.parentViewController;
+    [( GameViewController*)self.rootContainer.GameVC pauseGame];
 }
 
 -(void)updateScore {
