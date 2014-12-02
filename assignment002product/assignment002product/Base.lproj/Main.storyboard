@@ -125,17 +125,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle1.png" translatesAutoresizingMaskIntoConstraints="NO" id="j24-Hf-Onz">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paddle1.png" translatesAutoresizingMaskIntoConstraints="NO" id="j24-Hf-Onz">
                                 <rect key="frame" x="0.0" y="250" width="44" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="DBN-K6-l3f"/>
+                                    <constraint firstAttribute="height" constant="100" id="ngZ-vK-mj4"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paddle1.png" translatesAutoresizingMaskIntoConstraints="NO" id="NfQ-wd-l6c">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paddle1.png" translatesAutoresizingMaskIntoConstraints="NO" id="NfQ-wd-l6c">
                                 <rect key="frame" x="556" y="250" width="44" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="dgr-Mv-8K9"/>
+                                    <constraint firstAttribute="height" constant="100" id="iXu-U3-jDy"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ball1.png" translatesAutoresizingMaskIntoConstraints="NO" id="rtG-nC-Ugs">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ball1.png" translatesAutoresizingMaskIntoConstraints="NO" id="rtG-nC-Ugs">
                                 <rect key="frame" x="278" y="278" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="ddV-hx-dBP"/>
+                                    <constraint firstAttribute="height" constant="44" id="ocH-Mi-YlS"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.122896106" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="rtG-nC-Ugs" firstAttribute="centerX" secondItem="hp4-H7-csh" secondAttribute="centerX" id="7La-il-qsg"/>
+                            <constraint firstItem="j24-Hf-Onz" firstAttribute="centerY" secondItem="rtG-nC-Ugs" secondAttribute="centerY" id="BsN-4N-JvB"/>
+                            <constraint firstItem="NfQ-wd-l6c" firstAttribute="centerY" secondItem="hp4-H7-csh" secondAttribute="centerY" id="Enu-gH-8f2"/>
+                            <constraint firstAttribute="trailing" secondItem="NfQ-wd-l6c" secondAttribute="trailing" id="fgK-4x-IaV"/>
+                            <constraint firstItem="j24-Hf-Onz" firstAttribute="top" secondItem="NfQ-wd-l6c" secondAttribute="top" id="hU2-FW-fB8"/>
+                            <constraint firstItem="j24-Hf-Onz" firstAttribute="leading" secondItem="hp4-H7-csh" secondAttribute="leading" id="iJO-Bt-Ciq"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
