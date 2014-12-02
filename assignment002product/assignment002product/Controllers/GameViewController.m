@@ -252,12 +252,15 @@
 //    _paddle2.frame = player2;
 //    _frameCounter++;
 //    if (!(_frameCounter%2)) {
-        if (_ball.frame.origin.y > player2.origin.y) {
+        if (_ball.frame.origin.y > player2.origin.y && player2.origin.y < (self.view.bounds.size.height - 100)) {
             player2 = CGRectMake(player2.origin.x, player2.origin.y + 3, player2.size.width, player2.size.height);
         }
         if (_ball.frame.origin.y < player2.origin.y) {
             player2 = CGRectMake(player2.origin.x, player2.origin.y - 3, player2.size.width, player2.size.height);
         }
+    if (player2.origin.y > (self.view.bounds.size.height - 100)) {
+        player2 = CGRectMake(player2.origin.x, player2.origin.y, player2.size.width, player2.size.height);
+    }
 //  }
     _paddle2.frame = player2;
 }
